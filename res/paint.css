@@ -34,37 +34,34 @@ main {
 }
 
 section {
-    align-content: stretch;
-    align-items: stretch;
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
     gap: 2em;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 #toolbar {
-    flex: 1 1 auto;
 }
 
 #toolbar fieldset {
     border-radius: 1em;
     flex: 1 1 auto;
     margin: 0 auto 1em;
-    width: 100%;
 }
 
 #toolbar label {
     display: block;
     margin: 0.5em auto;
 }
-/*
+
 #toolbar #paint-color {
     cursor: pointer;
     display: block;
     height: 4em;
     width: 100%;
 }
-*/
+
 #toolbar input[type=color] {
     cursor: pointer;
 }
@@ -74,8 +71,13 @@ section {
     cursor: pointer;
 }
 
+#toolbar label[for=canvas-size] {
+    margin-bottom: 0;
+}
+
 #toolbar input[type=range] {
     cursor: grab;
+    margin-bottom: 0;
     width: 100%;
 }
 
@@ -88,6 +90,10 @@ section {
     width: 100%;
 }
 
+#toolbar #range {
+    text-align: center;
+}
+
 #canvas {
     background-color: var(--grid-color);
     cursor: crosshair;
@@ -96,7 +102,7 @@ section {
     grid-template-rows: repeat(16, 1fr);
     grid-column-gap: var(--grid-size);
     grid-row-gap: var(--grid-size);
-    margin: 0 auto;
+    margin: 0;
     padding: var(--grid-size);
     height: 70vmin;
     width: 70vmin;
