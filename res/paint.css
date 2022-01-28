@@ -1,0 +1,112 @@
+:root {
+    --paint-color:  #000000;
+    --canvas-color: #ffffff;
+    --grid-color:   #000000;
+    --grid-size:    1px;
+}
+
+* {
+    box-sizing: border-box;
+    cursor: default;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vmin;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    margin: 1em auto 0;
+    max-width: 80vw;
+}
+
+section {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: flex-start;
+}
+
+#toolbar {
+    flex: 1 1 auto;
+}
+
+#toolbar fieldset {
+    border-radius: 1em;
+    flex: 1 1 auto;
+    margin: 0 auto 1em;
+    width: 100%;
+}
+
+#toolbar label {
+    display: block;
+    margin: 0.5em auto;
+}
+/*
+#toolbar #paint-color {
+    cursor: pointer;
+    display: block;
+    height: 4em;
+    width: 100%;
+}
+*/
+#toolbar input[type=color] {
+    cursor: pointer;
+}
+
+#toolbar input[type=radio],
+#toolbar input[type=checkbox] {
+    cursor: pointer;
+}
+
+#toolbar input[type=range] {
+    cursor: grab;
+    width: 100%;
+}
+
+#toolbar input[type=range]:active {
+    cursor: grabbing;
+}
+
+#toolbar #clear {
+    cursor: pointer;
+    width: 100%;
+}
+
+#canvas {
+    background-color: var(--grid-color);
+    cursor: crosshair;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    grid-column-gap: var(--grid-size);
+    grid-row-gap: var(--grid-size);
+    margin: 0 auto;
+    padding: var(--grid-size);
+    height: 70vmin;
+    width: 70vmin;
+}
+
+#canvas div {
+    background-color: var(--canvas-color);
+    cursor: crosshair;
+}
+
+#canvas div:hover {
+    background-color: var(--paint-color);
+}

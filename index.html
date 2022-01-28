@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Paint</title>
+        <link rel="stylesheet" href="./res/paint.css">
+        <script src="./res/paint.js" defer></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                new Paint;
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+            <header>header</header>
+            <section>
+                <form id="toolbar">
+                    <fieldset id="paint-options">
+                        <legend>Paint Options</legend>
+                        <label for="paint-color">
+                            <input type="color" id="paint-color" value="#000000">
+                        </label>
+                        <label for="paint-custom">
+                            <input type="radio" id="paint-custom" name="paint-type" value="custom" checked>
+                            Custom Color
+                        </label>
+                        <label for="paint-random">
+                            <input type="radio" id="paint-random" name="paint-type" value="random">
+                            Random Colors
+                        </label>
+                        <label for="paint-erase">
+                            <input type="radio" id="paint-erase" name="paint-type" value="erase">
+                            Erase Colors
+                        </label>
+                    </fieldset>
+                    <fieldset id="canvas-options">
+                        <legend>Canvas Options</legend>
+                        <label for="grid-color">
+                            <input type="color" id="grid-color" value="#000000">
+                            Grid Color
+                            <input type="checkbox" id="grid-show" checked>
+                        </label>
+                        <label for="canvas-color">
+                            <input type="color" id="canvas-color" name="canvas-color" value="#ffffff">
+                            Canvas Color
+                        </label>
+                        <button id="clear">Clear</button>
+                        <label for="canvas-size">
+                            <input type="range" id="canvas-size" name="paint-type" value="16" min="8" max="96" step="8">
+                        </label>
+                        <div id="range">16 × 16</div>
+                    </fieldset>
+                </form>
+                <div id="canvas"></div>
+            </section>
+            <footer>footer</footer>
+        </main>
+    </body>
+</html>
