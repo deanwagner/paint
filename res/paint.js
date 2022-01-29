@@ -125,8 +125,8 @@ class Paint {
     }
 
     /**
-     * Get Paint Color
-     * @returns {string|null} - Paint Color
+     * Get Paint Color based on Paint Type
+     * @returns {string|null} - Paint Color or NULL to Erase
      */
     getPaint() {
         switch (true) {
