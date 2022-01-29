@@ -99,7 +99,6 @@ header h1:before {
 .github-link:hover,
 .github-link:focus {
     transform: rotate(360deg) scale(1.5);
-    transition: all 0.3s ease-out;
 }
 
 .github-icon {
@@ -149,24 +148,6 @@ section {
     width: auto;
 }
 
-legend:before,
-legend:after {
-    content: '';
-    height: 0.6em;
-    position: absolute;
-    top: 0.4em;
-}
-
-legend:before {
-    border-left: 1px solid #000;
-    left: 0;
-}
-
-legend:after {
-    border-right: 1px solid #000;
-    right: 0;
-}
-
 #toolbar label {
     display: block;
     margin: 1em auto;
@@ -181,12 +162,35 @@ legend:after {
 }
 
 #toolbar input[type=color] {
+    background-color: var(--light-font-color);
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    box-shadow: 0.3em 0.3em 0.3em rgba(0,0,0,0.6);
+    cursor: pointer;
+    padding: 0;
+}
+
+#toolbar input[type=color]:hover {
+    background-color: #fff;
+    box-shadow: 0 0 0.4em #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    padding: 0;
+}
+
+#toolbar label {
+    color: var(--light-font-color);
     cursor: pointer;
 }
 
-#toolbar input[type=radio],
+#toolbar input[type=radio] {
+    cursor: pointer;
+}
+
 #toolbar input[type=checkbox] {
     cursor: pointer;
+    height: 1.5em;
+    width: 1.5em;
 }
 
 #toolbar label[for=canvas-size] {
@@ -204,8 +208,25 @@ legend:after {
 }
 
 #toolbar #clear {
+    background-color: var(--light-font-color);
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    box-shadow: 0.3em 0.3em 0.3em rgba(0,0,0,0.6);
+    color: var(--dark-font-color);
     cursor: pointer;
+    font-weight: bold;
+    padding: 0.5em;
+    text-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.5);
     width: 100%;
+}
+
+#toolbar #clear:hover,
+#toolbar #clear:focus,
+#toolbar #clear:active {
+    background-color: #fff;
+    box-shadow: 0 0 0.4em #fff;
+    color: #000;
+    text-shadow: 0 0 0.2em rgba(0,0,0,1);
 }
 
 #toolbar #range {
@@ -232,8 +253,23 @@ legend:after {
     cursor: crosshair;
 }
 
-#canvas div:hover {
+#canvas div:hover,
+#canvas.custom div:hover {
     background-color: var(--paint-color);
+    background-image: none;
+}
+
+#canvas.random div:hover {
+    background-color: #fff;
+    background-image:
+        linear-gradient(217deg, rgba(255,0,0,1), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,1), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 70.71%);
+}
+
+#canvas.erase div:hover {
+    background-color: var(--canvas-color);
+    background-image: none;
 }
 
 /* * * * * * * * *\

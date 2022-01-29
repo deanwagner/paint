@@ -13,10 +13,8 @@ class Paint {
         this.canvasSlider = document.getElementById('canvas-size');
         this.range        = document.getElementById('range');
 
-        // Set to Default Colors
-        this.paintPicker.value  = '#000000';
-        this.gridPicker.value   = '#000000';
-        this.canvasPicker.value = '#ffffff';
+        // Set Defaults
+        this.setDefaults();
 
         // Build Grid
         this.buildGrid();
@@ -54,9 +52,9 @@ class Paint {
         const radio = document.getElementsByName('paint-type');
         for (let i = 0; i < radio.length; i++) {
             radio[i].addEventListener('change', (e) => {
-                document.body.classList.remove(e.target.value);
+                this.canvas.classList.remove(...this.canvas.classList);
                 if (e.target.checked) {
-                    document.body.classList.add(e.target.value)
+                    this.canvas.classList.add(e.target.value)
                     this.paint = e.target.value;
                 }
             });
@@ -127,5 +125,19 @@ class Paint {
         const g = Math.floor(Math.random() * 256);
         const b = Math.floor(Math.random() * 256);
         return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    setDefaults() {
+        // Default Colors
+        this.paintPicker.value  = '#000000';
+        this.gridPicker.value   = '#000000';
+        this.canvasPicker.value = '#ffffff';
+
+        // Default Values
+        this.range.value    = this.pixels;
+        const paintCustom   = document.getElementById('paint-custom');
+        paintCustom.checked = true;
+        const gridShow      = document.getElementById('grid-show');
+        gridShow.checked    = true;
     }
 }

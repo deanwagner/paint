@@ -22,35 +22,35 @@
                 <form id="toolbar">
                     <fieldset id="paint-options">
                         <legend>Paint Options</legend>
-                        <label for="paint-color">
+                        <label for="paint-color" title="Select Color">
                             <input type="color" id="paint-color" value="#000000">
                         </label>
-                        <label for="paint-custom">
+                        <label for="paint-custom" title="Custom Paint Color">
                             <input type="radio" id="paint-custom" name="paint-type" value="custom" checked>
                             Custom Color
                         </label>
-                        <label for="paint-random">
+                        <label for="paint-random" title="Random Paint Color">
                             <input type="radio" id="paint-random" name="paint-type" value="random">
                             Random Colors
                         </label>
-                        <label for="paint-erase">
+                        <label for="paint-erase" title="Erase Paint Color">
                             <input type="radio" id="paint-erase" name="paint-type" value="erase">
                             Erase Colors
                         </label>
                     </fieldset>
                     <fieldset id="canvas-options">
                         <legend>Canvas Options</legend>
-                        <label for="grid-color">
+                        <label for="grid-color" title="Select Color">
                             <input type="color" id="grid-color" value="#000000">
                             Grid Color
-                            <input type="checkbox" id="grid-show" checked>
+                            <input type="checkbox" id="grid-show" title="Grid On/Off" checked>
                         </label>
-                        <label for="canvas-color">
-                            <input type="color" id="canvas-color" name="canvas-color" value="#ffffff">
+                        <label for="canvas-color" title="Select Color">
+                            <input type="color" id="canvas-color" value="#ffffff">
                             Canvas Color
                         </label>
-                        <button id="clear">Clear</button>
-                        <label for="canvas-size">
+                        <button id="clear" title="Clear Canvas">Clear</button>
+                        <label for="canvas-size" title="Change Canvas Size">
                             <input type="range" id="canvas-size" name="paint-type" value="16" min="8" max="96" step="8">
                         </label>
                         <div id="range">16 × 16</div>
