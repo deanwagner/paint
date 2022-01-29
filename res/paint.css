@@ -255,7 +255,12 @@ section {
 
 #canvas div:hover,
 #canvas.custom div:hover {
-    background-color: var(--paint-color);
+    background-color: var(--paint-color) !important;
+    background-image: none;
+}
+
+#canvas.erase div:hover {
+    background-color: var(--canvas-color) !important;
     background-image: none;
 }
 
@@ -265,11 +270,6 @@ section {
         linear-gradient(217deg, rgba(255,0,0,1), rgba(255,0,0,0) 70.71%),
         linear-gradient(127deg, rgba(0,255,0,1), rgba(0,255,0,0) 70.71%),
         linear-gradient(336deg, rgba(0,0,255,1), rgba(0,0,255,0) 70.71%);
-}
-
-#canvas.erase div:hover {
-    background-color: var(--canvas-color);
-    background-image: none;
 }
 
 /* * * * * * * * *\
