@@ -166,7 +166,7 @@ section {
     width: 100%;
 }
 
-#toolbar input[type=color] {
+#toolbar input[type='color'] {
     background-color: var(--color-light);
     border: 1px solid #000;
     border-radius: 0.3em;
@@ -176,7 +176,7 @@ section {
 }
 
 #toolbar #paint-color:hover,
-#toolbar input[type=color]:hover {
+#toolbar input[type='color']:hover {
     background-color: var(--color-hilight);
     box-shadow: 0 0 0.4em var(--color-hilight);
 }
@@ -186,30 +186,30 @@ section {
     cursor: pointer;
 }
 
-#toolbar input[type=radio] {
+#toolbar input[type='radio'] {
     accent-color: var(--color-light);
     cursor: pointer;
 }
 
-#toolbar input[type=checkbox] {
+#toolbar input[type='checkbox'] {
     accent-color: var(--color-light);
     cursor: pointer;
     height: 1.5em;
     width: 1.5em;
 }
 
-#toolbar label[for=canvas-size] {
+#toolbar label[for='canvas-size'] {
     margin-bottom: 0;
 }
 
-#toolbar input[type=range] {
+#toolbar input[type='range'] {
     accent-color: var(--color-dark);
     cursor: grab;
     margin-bottom: 0;
     width: 100%;
 }
 
-#toolbar input[type=range]:active {
+#toolbar input[type='range']:active {
     cursor: grabbing;
 }
 
