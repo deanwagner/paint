@@ -285,6 +285,7 @@ section {
 #canvas div {
     background-color: var(--canvas-color);
     cursor: crosshair;
+    transition: background-color 0.3s ease-out;
 }
 
 #canvas div:hover,
