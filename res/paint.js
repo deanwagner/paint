@@ -1,4 +1,16 @@
+"use strict";
+
+/**
+ * Paint App
+ * @class
+ * @author  Dean Wagner <info@deanwagner.net>
+ */
 class Paint {
+
+    /**
+     * Constructor
+     * @constructor
+     */
     constructor() {
         // Class Properties
         this.pixels = 16;
@@ -78,6 +90,9 @@ class Paint {
         });
     }
 
+    /**
+     * Build Canvas Pixel Grid
+     */
     buildGrid() {
         // Empty Canvas
         this.canvas.innerHTML = '';
@@ -109,6 +124,10 @@ class Paint {
         }
     }
 
+    /**
+     * Get Paint Color
+     * @returns {string|null} - Paint Color
+     */
     getPaint() {
         switch (true) {
             case (this.paint === 'custom'):
@@ -120,6 +139,10 @@ class Paint {
         }
     }
 
+    /**
+     * Get Random Color
+     * @returns {string} - Random RGB Color
+     */
     randomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
@@ -127,6 +150,9 @@ class Paint {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
+    /**
+     * Set All Values to Default
+     */
     setDefaults() {
         // Default Colors
         this.paintPicker.value  = '#000000';

@@ -1,3 +1,15 @@
+
+/* * * * * * * * * * * *\
+ *     Paint App       *
+ *                     *
+ *  By: Dean Wagner    *
+ *  me@deanwagner.net  *
+ *                     *
+ *   Assignment for:   *
+ *  The Odin Project   *
+ * theodinproject.com  *
+\* * * * * * * * * * * */
+
 :root {
     --paint-color:  #000000;
     --canvas-color: #ffffff;
@@ -16,6 +28,10 @@
     color-scheme: dark;
     cursor: default;
 }
+
+/* * * * * * * * *\
+ * Element Base  *
+\* * * * * * * * */
 
 html {
     margin: 0;
@@ -58,6 +74,10 @@ main {
     margin: 0 auto;
     max-width: 80vw;
 }
+
+/* * * * * * * * *\
+ *  Page Header  *
+\* * * * * * * * */
 
 header {
     align-items: center;
@@ -127,6 +147,10 @@ section {
     gap: 2em;
     justify-content: center;
 }
+
+/* * * * * * * * *\
+ *    Toolbar    *
+\* * * * * * * * */
 
 #toolbar {
     display: flex;
@@ -238,6 +262,10 @@ section {
 #toolbar #range {
     text-align: center;
 }
+
+/* * * * * * * * *\
+ *    Canvas     *
+\* * * * * * * * */
 
 #canvas {
     background-color: var(--grid-color);
