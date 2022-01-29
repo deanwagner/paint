@@ -54,7 +54,9 @@ class Paint {
         const radio = document.getElementsByName('paint-type');
         for (let i = 0; i < radio.length; i++) {
             radio[i].addEventListener('change', (e) => {
+                document.body.classList.remove(e.target.value);
                 if (e.target.checked) {
+                    document.body.classList.add(e.target.value)
                     this.paint = e.target.value;
                 }
             });
