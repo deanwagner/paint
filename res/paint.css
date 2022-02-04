@@ -141,6 +141,10 @@ header h1:before {
     fill: var(--color-accent);
 }
 
+/* * * * * * * * *\
+ *    Section    *
+\* * * * * * * * */
+
 section {
     align-items: flex-start;
     display: flex;
