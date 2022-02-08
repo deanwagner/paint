@@ -3,20 +3,20 @@
 /**
  * Paint App
  * @class
- * @author  Dean Wagner <info@deanwagner.net>
+ * @author Dean Wagner <info@deanwagner.net>
  */
 class Paint {
+
+    // Class Properties
+    pixels = 16;
+    mouse  = false;
+    paint  = 'custom';
 
     /**
      * Constructor
      * @constructor
      */
     constructor() {
-        // Class Properties
-        this.pixels = 16;
-        this.mouse  = false;
-        this.paint  = 'custom';
-
         // Class Elements
         this.canvas       = document.getElementById('canvas');
         this.paintPicker  = document.getElementById('paint-color');
@@ -73,15 +73,13 @@ class Paint {
         }
 
         // Show/Hide Grid
-        const grid = document.getElementById('grid-show');
-        grid.addEventListener('change', (e) => {
+        document.getElementById('grid-show').addEventListener('change', (e) => {
             const size = (e.target.checked) ? '1px' : '0';
             document.documentElement.style.setProperty('--grid-size', size);
         });
 
         // Clear Image
-        const clear = document.getElementById('clear');
-        clear.addEventListener('click', (e) => {
+        document.getElementById('clear').addEventListener('click', (e) => {
             e.preventDefault();
             const divs = this.canvas.getElementsByTagName('div');
             for (let i = 0; i < divs.length; i++) {
@@ -160,10 +158,8 @@ class Paint {
         this.canvasPicker.value = '#ffffff';
 
         // Default Values
-        this.range.value    = this.pixels;
-        const paintCustom   = document.getElementById('paint-custom');
-        paintCustom.checked = true;
-        const gridShow      = document.getElementById('grid-show');
-        gridShow.checked    = true;
+        this.range.value = this.pixels;
+        document.getElementById('paint-custom').checked = true;
+        document.getElementById('grid-show').checked = true;
     }
 }
