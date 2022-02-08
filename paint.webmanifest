@@ -1,0 +1,28 @@
+{
+    "name"        : "Paint by Pixel",
+    "short_name"  : "Paint",
+    "description" : "A simple paint-by-pixel app.",
+    "icons"       : [{
+        "src"   : "img/paint.png",
+        "type"  : "image/png",
+        "sizes" : "any"
+    }, {
+        "src"   : "img/paint-192.png",
+        "type"  : "image/png",
+        "sizes" : "192x192"
+    }, {
+        "src"   : "img/paint.png",
+        "type"  : "image/png",
+        "sizes" : "512x512"
+    }],
+    "start_url"        : "index.html",
+    "background_color" : "#666666",
+    "theme_color"      : "#333333",
+    "display"          : "standalone",
+    "scope"            : "/paint/",
+    "screenshots"      : [{
+        "src"   : "img/paint-screenshot.png",
+        "type"  : "image/png",
+        "sizes" : "650x365"
+    }]
+}

@@ -102,7 +102,7 @@ header h1 {
 }
 
 header h1:before {
-    background: url('./paint.png') no-repeat center center;
+    background: url('../img/paint.png') no-repeat center center;
     background-size: contain;
     content: '';
     display: inline-block;
