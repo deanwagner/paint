@@ -19,9 +19,9 @@ I used `LocalStorage` to save the image within the browser so that it is stored 
 
 ### Scope Creep
 
-* Save and Restore Current Image
-* Export Image as Downloadable PNG
-* Custom Printer CSS for Printing Image
+* Save and restore current image
+* Export image as downloadable PNG
+* Custom printer CSS for printing image
 * Change color on click (and drag) instead of just mouse-over
 * Erase painted pixels
 * Change grid color
