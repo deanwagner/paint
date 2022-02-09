@@ -138,6 +138,11 @@ class Paint {
             this.exportImage();
         });
 
+        // <Export as File> Button
+        document.getElementById('download_image').addEventListener('click', (e) => {
+            this.closeModal('export_modal');
+        });
+
         // <Print> Button
         document.getElementById('button_print').addEventListener('click', (e) => {
             e.preventDefault();
