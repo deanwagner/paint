@@ -1,7 +1,8 @@
 # Paint
 Paint-by-Pixel Image Creation App written in JavaScript and CSS
 
-Live Demo: https://deanwagner.github.io/paint/
+Live Demo:  
+https://deanwagner.github.io/paint/
 
 ![Project Screenshot](https://deanwagner.github.io/paint/img/paint-screenshot.png)
 
