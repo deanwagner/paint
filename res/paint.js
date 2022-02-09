@@ -126,8 +126,8 @@ class Paint {
             this.closeModal('save_modal');
         });
 
-        // <Revert> Button
-        document.getElementById('button_revert').addEventListener('click', (e) => {
+        // <Restore> Button
+        document.getElementById('button_restore').addEventListener('click', (e) => {
             e.preventDefault();
             location.reload();
         });
