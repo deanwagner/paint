@@ -194,37 +194,42 @@ class Paint {
      * Port <grid> to <canvas>
      */
     exportImage() {
+        // Set up Canvas
         const actualCanvas  = document.getElementById('actual_canvas');
         const canvasContext = actualCanvas.getContext('2d');
         actualCanvas.height = this.pixels;
         actualCanvas.width  = this.pixels;
 
-        const uint8 = new Uint8ClampedArray((this.pixels * this.pixels) * 4);
-        const divs  = this.canvas.getElementsByTagName('div');
-
+        // Build Pixel Matrix from Grid
+        const matrix = [];
+        const divs = this.canvas.getElementsByTagName('div');
         for (let i = 0; i < divs.length; i++) {
             const css = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
-
             if (css) {
                 const rgb = css.replace('rgb(', '').replace(')', '').split(', ');
-
-                uint8[uint8.length] = parseInt(rgb[0]);
-                uint8[uint8.length] = parseInt(rgb[1]);
-                uint8[uint8.length] = parseInt(rgb[2]);
-                uint8[uint8.length] = 255;
+                matrix.push(parseInt(rgb[0]));
+                matrix.push(parseInt(rgb[1]));
+                matrix.push(parseInt(rgb[2]));
+                matrix.push(255);
             } else {
-                uint8[uint8.length] = 0;
-                uint8[uint8.length] = 0;
-                uint8[uint8.length] = 0;
-                uint8[uint8.length] = 0;
+                matrix.push(0);
+                matrix.push(0);
+                matrix.push(0);
+                matrix.push(0);
             }
         }
 
-        console.log(uint8);
+        // Create Image from Pixel Matrix
+        const actualImage = canvasContext.createImageData(this.pixels, this.pixels);
+        actualImage.data.set(matrix);
 
-        const actualImage = new ImageData(uint8, this.pixels, this.pixels);
+        // Add Image to Canvas
         canvasContext.putImageData(actualImage, 0, 0);
 
+        // Create Download Link
+        document.getElementById('download_image').href = actualCanvas.toDataURL('image/png');
+
+        // Open Modal
         this.openModal('export_modal');
     }
 
@@ -251,26 +256,26 @@ class Paint {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
         const b = Math.floor(Math.random() * 256);
-        return '#' + this.rgbToHex(r, g, b);
+        return `rgb(${r}, ${g}, ${b})`
     }
 
-    /**
+    /*
      * Convert RGB byte to Hex Value
      * @param   {number} byte - 0-255 Int
      * @returns {string} - Hex Value
-     */
+     *
     byteToHex(byte) {
         const hex = byte.toString(16);
         return (hex.length === 1) ? '0' + hex : hex;
     }
 
-    /**
+    /*
      * Convert RGB bytes to Hex Value
      * @param   {number} r - 0-255 Int
      * @param   {number} g - 0-255 Int
      * @param   {number} b - 0-255 Int
      * @returns {string} - Hex Value
-     */
+     *
     rgbToHex(r, g, b) {
         const red = this.byteToHex(r);
         const grn = this.byteToHex(g);
@@ -278,11 +283,11 @@ class Paint {
         return '#' + red + grn + blu;
     }
 
-    /**
+    /*
      * Convert Hex Value to RGBA bytes
      * @param   {string|null} hex - Hex Value
      * @returns {object} - color.r, color.g, color.b
-     */
+     *
     hexToRgba(hex) {
         let rgba;
 
@@ -299,6 +304,7 @@ class Paint {
 
         return rgba;
     }
+    */
 
     /**
      * Set All Values to Default

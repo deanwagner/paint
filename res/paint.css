@@ -157,9 +157,9 @@ header h1:before {
 
 .github-icon {
     filter: drop-shadow(0.15em 0.15em 0.15em #000);
-    height: 1.6em;
+    height: 2em;
     transition: all 0.3s ease-out;
-    width: 1.6em;
+    width: 2em;
 }
 
 .github-link:hover .github-icon,
@@ -425,6 +425,24 @@ footer {
     margin: 3em auto 0;
     padding: 1em;
     width: 8em;
+}
+
+/* * * * * * * * *\
+ * Export Image  *
+\* * * * * * * * */
+
+#export_modal {
+    text-align: center;
+}
+
+#export_modal #actual_canvas {
+    margin: 0 auto 1em;
+}
+
+#export_modal #download_image {
+    font-weight: normal;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 /* * * * * * * * *\
