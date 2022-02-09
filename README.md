@@ -23,7 +23,7 @@ I used `LocalStorage` to save the image within the browser so that it is stored 
 * Save and restore current image
 * Export image as downloadable PNG
 * Custom printer CSS for printing image
-* Change color on click (and drag) instead of just mouse-over
+* Paint on click (and drag) instead of just mouse-over
 * Erase painted pixels
 * Change grid color
 * Show/hide grid
