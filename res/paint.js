@@ -276,23 +276,24 @@ class Paint {
         return `rgb(${r}, ${g}, ${b})`
     }
 
-    /*
+    /* * * * * NO LONGER USED * * * * * *\
+    /**
      * Convert RGB byte to Hex Value
      * @param   {number} byte - 0-255 Int
      * @returns {string} - Hex Value
-     *
+     * /
     byteToHex(byte) {
         const hex = byte.toString(16);
         return (hex.length === 1) ? '0' + hex : hex;
     }
 
-    /*
+    /**
      * Convert RGB bytes to Hex Value
      * @param   {number} r - 0-255 Int
      * @param   {number} g - 0-255 Int
      * @param   {number} b - 0-255 Int
      * @returns {string} - Hex Value
-     *
+     * /
     rgbToHex(r, g, b) {
         const red = this.byteToHex(r);
         const grn = this.byteToHex(g);
@@ -300,14 +301,13 @@ class Paint {
         return '#' + red + grn + blu;
     }
 
-    /*
+    /**
      * Convert Hex Value to RGBA bytes
      * @param   {string|null} hex - Hex Value
      * @returns {object} - color.r, color.g, color.b
-     *
+     * /
     hexToRgba(hex) {
         let rgba;
-
         if (hex) {
             rgba = {
                 r : parseInt(hex.substring(1, 2), 16),
@@ -318,10 +318,9 @@ class Paint {
         } else {
             rgba = { r : 0, g : 0, b : 0, a : 0 };
         }
-
         return rgba;
     }
-    */
+    \* * * * * * * * * * * * * * * * * */
 
     /**
      * Set All Values to Default
