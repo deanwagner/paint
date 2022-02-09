@@ -69,14 +69,21 @@
                             <input type="color" id="canvas-color" value="#ffffff">
                             Canvas Color
                         </label>
-                        <button id="clear" title="Clear Canvas">Clear</button>
+                        <button id="clear" title="Clear Canvas" type="button">Clear</button>
                         <label for="canvas-size" title="Change Canvas Size">
                             <input type="range" id="canvas-size" name="paint-type" value="16" min="8" max="96" step="8">
                         </label>
                         <div id="range">16 × 16</div>
                     </fieldset>
                 </form>
-                <div id="canvas"></div>
+                <div>
+                    <div id="canvas"></div>
+                    <div id="actions">
+                        <button id="button_save" title="Save Image in Browser" type="button">Save</button>
+                        <button id="button_export" title="Export Image to File" type="button">Export</button>
+                        <button id="button_print" title="Print Image" type="button">Print</button>
+                    </div>
+                </div>
             </section>
             <!-- ------------ -!>
                  Page Footer
@@ -86,5 +93,29 @@
                 for <a href="https://theodinproject.com/" rel="external" target="_blank">The Odin Project</a>
             </footer>
         </main>
+        <!-- ------------ -!>
+               Modals
+        <--- ------------ -->
+        <div id="modal">
+            <div id="save_modal">
+                <a class="close_modal" data-id="modal_recycle" href="#"><svg viewBox="0 0 24 24">
+                    <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg></a>
+                <h3>Image Saved</h3>
+                <p>Your image has been saved locally in your browser. If
+                    you leave this page and then return it will still be
+                    available to you. Every time you click save it will
+                    update your browser's stored copy.</p>
+                <button id="save_confirm" type="button">O K</button>
+            </div>
+            <div id="export_modal">
+                <a class="close_modal" data-id="modal_recycle" href="#"><svg viewBox="0 0 24 24">
+                    <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg></a>
+                <h3>Export Image</h3>
+                <img alt="User Created Image">
+                <a id="download_image" class="button" title="Save this Image to Your Device" download="image.png">Save to Device</a>
+            </div>
+        </div>
     </body>
 </html>
