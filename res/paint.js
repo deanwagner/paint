@@ -126,10 +126,22 @@ class Paint {
             this.closeModal('save_modal');
         });
 
+        // <Revert> Button
+        document.getElementById('button_revert').addEventListener('click', (e) => {
+            e.preventDefault();
+            location.reload();
+        });
+
         // <Export> Button
         document.getElementById('button_export').addEventListener('click', (e) => {
             e.preventDefault();
             this.exportImage();
+        });
+
+        // <Print> Button
+        document.getElementById('button_print').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.print();
         });
     }
 
