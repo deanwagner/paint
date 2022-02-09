@@ -117,24 +117,7 @@ class Paint {
         // <Save> Button
         document.getElementById('button_save').addEventListener('click', (e) => {
             e.preventDefault();
-
-            // Check for Existing Image
-            if (!this.storage.hasOwnProperty('size') || !this.storage.hasOwnProperty('matrix')) {
-                // Show Modal for First Save
-                this.openModal('save_modal');
-            }
-
-            // Build Matrix
-            const matrix = [];
-            const divs = this.canvas.getElementsByTagName('div');
-            for (let i = 0; i < divs.length; i++) {
-                matrix[i] = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
-            }
-
-            // Store Image
-            this.storage.setItem('matrix', JSON.stringify(matrix));
-            this.storage.setItem('size', this.canvasSlider.value);
-            console.log('Image Saved');
+            this.storeImage();
         });
 
         // Save <OK> Button
@@ -146,7 +129,7 @@ class Paint {
         // <Export> Button
         document.getElementById('button_export').addEventListener('click', (e) => {
             e.preventDefault();
-            this.openModal('export_modal');
+            this.exportImage();
         });
     }
 
@@ -185,6 +168,67 @@ class Paint {
     }
 
     /**
+     * Store Image in LocalStorage
+     */
+    storeImage() {
+        // Check for Existing Image
+        if (!this.storage.hasOwnProperty('size') || !this.storage.hasOwnProperty('matrix')) {
+            // Show Modal for First Save
+            this.openModal('save_modal');
+        }
+
+        // Build Matrix
+        const matrix = [];
+        const divs = this.canvas.getElementsByTagName('div');
+        for (let i = 0; i < divs.length; i++) {
+            matrix[i] = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
+        }
+
+        // Store Image
+        this.storage.setItem('matrix', JSON.stringify(matrix));
+        this.storage.setItem('size', this.canvasSlider.value);
+        console.log('Image Saved');
+    }
+
+    /**
+     * Port <grid> to <canvas>
+     */
+    exportImage() {
+        const actualCanvas  = document.getElementById('actual_canvas');
+        const canvasContext = actualCanvas.getContext('2d');
+        actualCanvas.height = this.pixels;
+        actualCanvas.width  = this.pixels;
+
+        const uint8 = new Uint8ClampedArray((this.pixels * this.pixels) * 4);
+        const divs  = this.canvas.getElementsByTagName('div');
+
+        for (let i = 0; i < divs.length; i++) {
+            const css = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
+
+            if (css) {
+                const rgb = css.replace('rgb(', '').replace(')', '').split(', ');
+
+                uint8[uint8.length] = parseInt(rgb[0]);
+                uint8[uint8.length] = parseInt(rgb[1]);
+                uint8[uint8.length] = parseInt(rgb[2]);
+                uint8[uint8.length] = 255;
+            } else {
+                uint8[uint8.length] = 0;
+                uint8[uint8.length] = 0;
+                uint8[uint8.length] = 0;
+                uint8[uint8.length] = 0;
+            }
+        }
+
+        console.log(uint8);
+
+        const actualImage = new ImageData(uint8, this.pixels, this.pixels);
+        canvasContext.putImageData(actualImage, 0, 0);
+
+        this.openModal('export_modal');
+    }
+
+    /**
      * Get Paint Color based on Paint Type
      * @returns {string|null} - Paint Color or NULL to Erase
      */
@@ -207,17 +251,53 @@ class Paint {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
         const b = Math.floor(Math.random() * 256);
-        return '#' + this.byteToHex(r) + this.byteToHex(g) + this.byteToHex(b);
+        return '#' + this.rgbToHex(r, g, b);
     }
 
     /**
-     * Convert RGB byte to Hex
+     * Convert RGB byte to Hex Value
      * @param   {number} byte - 0-255 Int
-     * @returns {string} - Hex
+     * @returns {string} - Hex Value
      */
     byteToHex(byte) {
         const hex = byte.toString(16);
         return (hex.length === 1) ? '0' + hex : hex;
+    }
+
+    /**
+     * Convert RGB bytes to Hex Value
+     * @param   {number} r - 0-255 Int
+     * @param   {number} g - 0-255 Int
+     * @param   {number} b - 0-255 Int
+     * @returns {string} - Hex Value
+     */
+    rgbToHex(r, g, b) {
+        const red = this.byteToHex(r);
+        const grn = this.byteToHex(g);
+        const blu = this.byteToHex(b);
+        return '#' + red + grn + blu;
+    }
+
+    /**
+     * Convert Hex Value to RGBA bytes
+     * @param   {string|null} hex - Hex Value
+     * @returns {object} - color.r, color.g, color.b
+     */
+    hexToRgba(hex) {
+        let rgba;
+
+        if (hex) {
+            rgba = {
+                r : parseInt(hex.substring(1, 2), 16),
+                g : parseInt(hex.substring(3, 4), 16),
+                b : parseInt(hex.substring(5, 6), 16),
+                a : 255
+            };
+        } else {
+            rgba = { r : 0, g : 0, b : 0, a : 0 };
+        }
+
+        return rgba;
     }
 
     /**
