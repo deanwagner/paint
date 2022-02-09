@@ -10,6 +10,10 @@ This project was created for the [Etch-a-Sketch assignment](https://www.theodinp
 
 I used `LocalStorage` to save the image within the browser so that it is stored between sessions. To export the image I loop through the `<div>` elements and build a pixel matrix based on their background color. I then use that pixel matrix to paint the image into a `<canvas>` element for display. From there I convert the contents of the `<canvas>` into a PNG Data URL so that it may be exported as a file to the user's device.
 
+### Assets Supplied
+
+* None
+
 ### Objectives
 
 1. Website with 16x16 grid of square `<div>` elements
