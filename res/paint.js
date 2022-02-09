@@ -39,7 +39,7 @@ class Paint {
         // Build Grid
         this.buildGrid();
 
-        // Check for Existing Image
+        // Check for Existing Pixel Matrix
         if (this.storage.hasOwnProperty('matrix')) {
             // Build Image from Stored Matrix
             const matrix = JSON.parse(this.storage.getItem('matrix'));
