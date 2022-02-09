@@ -465,4 +465,5 @@ footer {
     body { background-color: #fff; background-image: none; }
     header, #toolbar, #actions, footer { display: none; }
     #canvas { box-shadow: none; grid-gap: 0; padding: 0; }
+    #canvas div { background-color: #ffffff; }
 }
