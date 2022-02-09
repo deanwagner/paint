@@ -139,7 +139,7 @@ class Paint {
         });
 
         // <Export as File> Button
-        document.getElementById('download_image').addEventListener('click', (e) => {
+        document.getElementById('download_image').addEventListener('click', () => {
             this.closeModal('export_modal');
         });
 
