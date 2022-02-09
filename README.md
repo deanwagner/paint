@@ -12,8 +12,8 @@ I used `LocalStorage` to save the image within the browser so that it is stored 
 
 ### Objectives
 
-1. Website with 16x16 grid of square DIVs
-2. Change color of each DIV on mouse-over
+1. Website with 16x16 grid of square `<div>` elements
+2. Change color of each `<div>` on mouse-over
 3. A "clear" button to clear the grid
 4. Adjustable grid size, no larger than 100x100
 5. Option to use random color per pixel
