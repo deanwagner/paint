@@ -17,6 +17,11 @@ class Paint {
      * @constructor
      */
     constructor() {
+
+        /* * * * * * * * * *\
+         *   Class Setup   *
+        \* * * * * * * * * */
+
         // Class Elements
         this.canvas       = document.getElementById('canvas');
         this.paintPicker  = document.getElementById('paint-color');
@@ -48,6 +53,10 @@ class Paint {
                 divs[i].style.backgroundColor = matrix[i];
             }
         }
+
+        /* * * * * * * * * *\
+         * Event Listeners *
+        \* * * * * * * * * */
 
         // Mouse State Tracker
         document.body.addEventListener('mousedown', () => {
@@ -211,12 +220,6 @@ class Paint {
      * Port <grid> to <canvas>
      */
     exportImage() {
-        // Set up Canvas
-        const actualCanvas  = document.getElementById('actual_canvas');
-        const canvasContext = actualCanvas.getContext('2d');
-        actualCanvas.height = this.pixels;
-        actualCanvas.width  = this.pixels;
-
         // Build Pixel Matrix from Grid
         const matrix = [];
         const divs = this.canvas.getElementsByTagName('div');
@@ -236,8 +239,14 @@ class Paint {
             }
         }
 
+        // Set up Canvas
+        const actualCanvas  = document.getElementById('actual_canvas');
+        actualCanvas.height = this.pixels;
+        actualCanvas.width  = this.pixels;
+
         // Create Image from Pixel Matrix
-        const actualImage = canvasContext.createImageData(this.pixels, this.pixels);
+        const canvasContext = actualCanvas.getContext('2d');
+        const actualImage   = canvasContext.createImageData(this.pixels, this.pixels);
         actualImage.data.set(matrix);
 
         // Add Image to Canvas
