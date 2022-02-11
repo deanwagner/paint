@@ -3,6 +3,16 @@
 /**
  * Paint App
  * @class
+ * @property {number}  pixels       - Default Grid Size
+ * @property {boolean} mouse        - Mouse Button Up/Down Tracker
+ * @property {string}  paint        - Paint Mode
+ * @property {object}  canvas       - Painting <div#canvas> Element
+ * @property {object}  paintPicker  - Paint Color Picker Element
+ * @property {object}  gridPicker   - Grid Color Picker Element
+ * @property {object}  canvasPicker - Canvas Color Picker Element
+ * @property {object}  canvasSlider - Canvas Size Slider Element
+ * @property {object}  range        - Canvas Size <span#range> Element
+ * @property {object}  storage      - LocalStorage
  * @author Dean Wagner <info@deanwagner.net>
  */
 class Paint {
