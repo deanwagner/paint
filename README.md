@@ -8,7 +8,7 @@ https://deanwagner.github.io/paint/
 
 This project was created for the [Etch-a-Sketch assignment](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project) as part of [The Odin Project](https://www.theodinproject.com) curriculum. I met all the assignment objectives and then expanded on it with my own concepts to take it from an Etch-a-Sketch to a fully-functioning paint app--including the ability to save, export, and print.
 
-I used `LocalStorage` to save the image within the browser so that it is stored between sessions. To export the image I loop through the `<div>` elements and build a pixel matrix based on their background color. I then use that pixel matrix to paint the image into a `<canvas>` element for display. From there I convert the contents of the `<canvas>` into a PNG Data URL so that it may be exported as a file to the user's device.
+I used `LocalStorage` to save the image within the browser so that it is stored between sessions. To export the image I loop through the `<div>` elements and build a pixel matrix based on their background color. I then use that pixel matrix to paint the image into a `<canvas>` element for display. From there I convert the contents of the `<canvas>` into a PNG Data URL so that the image may be exported as a file to the user's device.
 
 ### Assets Supplied
 
