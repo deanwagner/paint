@@ -461,8 +461,9 @@ footer {
 }
 
 @media print {
+    @page { margin: 0; }
     * { color-adjust: exact !important; -webkit-print-color-adjust: exact !important; }
-    body { background-color: #fff; background-image: none; }
+    body { background-color: #ffffff; background-image: none; height: auto; margin: 0.5in; max-height: none; max-width: none; min-height: auto; min-width: auto; }
     header, #toolbar, #actions, footer { display: none; }
     #canvas { box-shadow: none; grid-gap: 0; padding: 0; }
     #canvas div { background-color: #ffffff; }
