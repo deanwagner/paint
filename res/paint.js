@@ -44,8 +44,8 @@ class Paint {
         this.storage = window.localStorage;
 
         // Check for Stored Image Size
-        if (this.storage.hasOwnProperty('size')) {
-            this.pixels = parseInt(this.storage.getItem('size'));
+        if (this.storage.hasOwnProperty('paint_size')) {
+            this.pixels = parseInt(this.storage.getItem('paint_size'));
         }
 
         // Set Defaults
@@ -55,9 +55,9 @@ class Paint {
         this.buildGrid();
 
         // Check for Existing Pixel Matrix
-        if (this.storage.hasOwnProperty('matrix')) {
+        if (this.storage.hasOwnProperty('paint_matrix')) {
             // Build Image from Stored Matrix
-            const matrix = JSON.parse(this.storage.getItem('matrix'));
+            const matrix = JSON.parse(this.storage.getItem('paint_matrix'));
             const divs = this.canvas.getElementsByTagName('div');
             for (let i = 0; i < divs.length; i++) {
                 divs[i].style.backgroundColor = matrix[i];
@@ -208,7 +208,7 @@ class Paint {
      */
     storeImage() {
         // Check for Existing Image
-        if (!this.storage.hasOwnProperty('size') || !this.storage.hasOwnProperty('matrix')) {
+        if (!this.storage.hasOwnProperty('paint_size') || !this.storage.hasOwnProperty('paint_matrix')) {
             // Show Modal for First Save
             this.openModal('save_modal');
         }
@@ -221,8 +221,8 @@ class Paint {
         }
 
         // Store Image
-        this.storage.setItem('matrix', JSON.stringify(matrix));
-        this.storage.setItem('size', this.canvasSlider.value);
+        this.storage.setItem('paint_matrix', JSON.stringify(matrix));
+        this.storage.setItem('paint_size', this.canvasSlider.value);
         console.log('Image Saved');
     }
 
